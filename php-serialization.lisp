@@ -156,7 +156,8 @@ PHP array elements always start with an integer or a string."
 
 (defun call-with-php-pprint-table (thunk)
   (declare (type function thunk))
-  (let ((*print-pprint-dispatch* (php-pprint-table)))
+  (let ((*print-circle* nil)
+        (*print-pprint-dispatch* (php-pprint-table)))
     (funcall thunk)))
 
 (defmacro with-php-pprint-table (&body body)
